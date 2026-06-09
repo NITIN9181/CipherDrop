@@ -36,6 +36,12 @@ The server stores ciphertext. The decryption key never leaves the browser. The t
 
 ---
 
+## Demo
+
+<video src="asset/2026-06-09%2011-32-11.mp4" controls width="100%"></video>
+
+---
+
 ## Security Guarantee
 
 **The server is architecturally incapable of reading any secret stored within it.**
