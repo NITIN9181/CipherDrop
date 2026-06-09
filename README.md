@@ -38,7 +38,7 @@ The server stores ciphertext. The decryption key never leaves the browser. The t
 
 ## Demo
 
-[▶️ Watch Demo Video](https://github.com/NITIN9181/CipherDrop/blob/main/asset/2026-06-09%2011-32-11.mp4)
+<video src="https://github.com/NITIN9181/CipherDrop/raw/main/asset/2026-06-09%2011-32-11.mp4" controls width="100%"></video>
 
 ---
 
