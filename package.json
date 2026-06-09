@@ -1,0 +1,17 @@
+{
+  "name": "cipherdrop-workspace",
+  "version": "1.0.0",
+  "description": "Zero-Knowledge Ephemeral Secret Sharing Workspace",
+  "scripts": {
+    "docker:up": "docker-compose up -d --build",
+    "docker:down": "docker-compose down -v",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:all": "npm run docker:up && npx wait-on http://localhost:4321 http://localhost:3001/api/secrets && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "typescript": "^5.5.2",
+    "wait-on": "^7.2.0"
+  }
+}

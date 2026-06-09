@@ -1,0 +1,38 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: cipherdrop
+      POSTGRES_USER: cipherdrop
+      POSTGRES_PASSWORD: localdev
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/migrations:/docker-entrypoint-initdb.d
+
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      REDIS_URL: redis://redis:6379
+      DATABASE_URL: postgresql://cipherdrop:localdev@postgres:5432/cipherdrop
+      PORT: 3001
+    depends_on:
+      - redis
+      - postgres
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4321:4321"
+    environment:
+      PUBLIC_API_URL: http://localhost:3001
+    depends_on:
+      - backend

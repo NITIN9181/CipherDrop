@@ -8,3 +8,30 @@ cipherdrop-spec.md
 CLAUDE.md
 GEMINI.md
 skills-lock.json
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build outputs
+dist/
+**/dist/
+.astro/
+**/.astro/
+
+# Playwright / Testing
+test-results/
+playwright-report/
+blob-report/
+.nyc_output/
+coverage/
+
+# Environments
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+

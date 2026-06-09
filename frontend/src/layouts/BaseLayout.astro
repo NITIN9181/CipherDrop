@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  isWide?: boolean;
+}
+
+const { title = 'CIPHERDROP // Zero-Knowledge Ephemeral Secrets', isWide = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- SEO Meta tags -->
+    <meta name="description" content="Zero-knowledge browser-native ephemeral secret sharing. Secrets are encrypted client-side and never transit the network in plaintext." />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <a href="/" class="wordmark">CIPHERDROP</a>
+        <div class="header-links">
+          <a href="/" class="nav-link">NEW SECRET</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class={`main-content ${isWide ? 'main-content--wide' : ''}`}>
+      <div class="page-content">
+        <slot />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <span>© CIPHERDROP · ARCHITECTURAL ZERO-KNOWLEDGE VAULT</span>
+      </div>
+    </footer>
+
+    <style>
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        border-bottom: 1px solid var(--color-border);
+        background: rgba(10, 10, 11, 0.85);
+        backdrop-filter: blur(12px);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+      }
+      .header-container {
+        width: 100%;
+        max-width: var(--max-width-wide);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .wordmark {
+        font-family: var(--font-mono);
+        font-weight: 500;
+        font-size: var(--text-sm);
+        color: var(--color-accent);
+        text-decoration: none;
+        letter-spacing: var(--tracking-wide);
+      }
+      .wordmark:hover {
+        opacity: 0.8;
+      }
+      .header-links {
+        display: flex;
+        gap: var(--space-4);
+      }
+      .nav-link {
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--color-text-secondary);
+        text-decoration: none;
+        letter-spacing: var(--tracking-wide);
+        text-transform: uppercase;
+      }
+      .nav-link:hover {
+        color: var(--color-text-primary);
+      }
+      .main-content {
+        margin: 0 auto;
+        padding: var(--space-20) var(--space-6) var(--space-12);
+        max-width: var(--max-width-content);
+        min-height: calc(100vh - 48px);
+      }
+      .main-content--wide {
+        max-width: var(--max-width-wide);
+      }
+      .footer {
+        height: 48px;
+        border-top: 1px solid var(--color-border);
+        background: var(--color-bg-surface);
+        display: flex;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        color: var(--color-text-tertiary);
+        letter-spacing: var(--tracking-wide);
+      }
+      .footer-container {
+        width: 100%;
+        max-width: var(--max-width-wide);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </body>
+</html>

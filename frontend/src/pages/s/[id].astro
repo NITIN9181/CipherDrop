@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DecryptView from '../../components/DecryptView';
+
+const { id } = Astro.params;
+---
+
+<BaseLayout title={`CIPHERDROP // View Secret ${id ? id.substring(0, 8) : ''}`} isWide={true}>
+  <DecryptView client:load />
+</BaseLayout>
